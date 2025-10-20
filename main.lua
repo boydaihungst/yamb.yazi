@@ -318,6 +318,10 @@ return {
 		local bookmarks = {}
 		for _, item in pairs(options.bookmarks or {}) do
 			bookmarks[item.path] = { tag = item.tag, path = item.path, key = item.key }
+			if not state.key2rank[item.key] then
+				state.key2rank[item.key] = #state.key2rank + 1
+				state.keys[#state.keys + 1] = item.key
+			end
 		end
 		-- load the config
 		local file = io.open(state.path, "r")
