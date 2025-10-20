@@ -160,6 +160,8 @@ local action_save = function(mb_path, bookmarks, path)
 		local value, event = ya.input({
 			title = "Tag (alias name)",
 			value = tag,
+			pos = { "top-center", y = 3, w = 40 },
+			-- TODO: remove this after next yazi released
 			position = { "top-center", y = 3, w = 40 },
 		})
 		if event ~= 1 then
@@ -199,6 +201,8 @@ local action_save = function(mb_path, bookmarks, path)
 		local value, event = ya.input({
 			title = "Key (1 character, optional)",
 			value = key,
+			pos = { "top-center", y = 3, w = 40 },
+			-- TODO: remove this after next yazi released
 			position = { "top-center", y = 3, w = 40 },
 		})
 		if event ~= 1 then
@@ -267,6 +271,8 @@ end
 local action_delete_all = function(mb_path)
 	local value, event = ya.input({
 		title = "Delete all bookmarks? (y/n)",
+		pos = { "top-center", y = 3, w = 40 },
+		-- TODO: remove this after next yazi released
 		position = { "top-center", y = 3, w = 40 },
 	})
 	if event ~= 1 then
