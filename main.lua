@@ -1,10 +1,13 @@
 --- @since 25.6.11
 local path_sep = package.config:sub(1, 1)
 
-local get_hovered_path = ya.sync(function(state)
+local get_hovered_path = ya.sync(function(_)
+	local is_virtual = Url(cx.active.current.hovered.url).scheme
+		and Url(cx.active.current.hovered.url).scheme.is_virtual
+
 	local h = cx.active.current.hovered
 	if h then
-		local path = tostring(h.url)
+		local path = tostring(is_virtual and h.url or h.url.path)
 		if h.cha.is_dir then
 			return path .. path_sep
 		end
