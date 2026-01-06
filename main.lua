@@ -114,9 +114,7 @@ local action_jump = function(bookmarks, path, jump_notify)
 	if string.sub(path, -1) == path_sep then
 		ya.emit("cd", { path, raw = true })
 	else
-		--TODO: Workaround, somehow yazi can't hover over the file path
-		ya.emit("shell", { "ya emit reveal " .. ya.quote(path), block = true, confirm = true })
-		-- ya.emit("reveal", { path, no_dummy = true, raw = true })
+		ya.emit("reveal", { path, no_dummy = not fs.cha(Url(path), false), raw = true })
 	end
 	if jump_notify then
 		ya.notify({
