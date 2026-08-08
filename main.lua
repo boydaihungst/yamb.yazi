@@ -217,6 +217,7 @@ local action_save = function(mb_path, bookmarks, path)
 		if not value or value == "" then
 			break
 		elseif #key == 1 then
+			key = value
 			-- check the key
 			local key_obj = nil
 			for _, item in pairs(bookmarks) do
